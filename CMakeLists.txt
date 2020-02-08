@@ -7,8 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_CXX_FLAGS "-stdlib=libc++")
 
 include_directories(common)
-add_subdirectory(common/RNG)
+#add_subdirectory(common/RNG)
 add_executable(monte_carlo common/main.cpp)
-target_link_libraries(monte_carlo PUBLIC BoxMullerRNG)
+#target_link_libraries(monte_carlo PUBLIC BoxMullerDistribution)
 
 

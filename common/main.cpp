@@ -1,11 +1,11 @@
 #include <iostream>
 #include <chrono>
 #include <random>
-#include "RNG/BoxMullerRNG.hpp"
+#include "RNG/BoxMullerDistribution.hpp"
 
 int main()
 {
-    int num_samples = 100;
+    int num_samples = 1000000;
     std::default_random_engine generator;
     std::normal_distribution<data_t> distribution(0,1);
 
@@ -14,17 +14,17 @@ int main()
     for (int i = 0; i < num_samples; ++i) 
     {
         temp_base = distribution(generator);
-        std::cout << temp_base << " ";
+        //std::cout << temp_base << " ";
     }
     std::cout << std::endl;
     auto baseline_end = std::chrono::system_clock::now();
+    std::uniform_real_distribution<data_t> dis(0.0, 1.0);   
 
-    BoxMullerRNG rng;
+    BoxMullerDistribution<data_t> distribution2(0.0,1.0);
     auto boxmuller_start = std::chrono::system_clock::now();
     for (int j = 0; j < num_samples; ++j)
     {
-        temp_base = rng.Generate();
-        std::cout << temp_base << " ";
+        temp_base = distribution2(generator, dis);
     }
     std::cout << std::endl;
     auto boxmuller_end = std::chrono::system_clock::now();
