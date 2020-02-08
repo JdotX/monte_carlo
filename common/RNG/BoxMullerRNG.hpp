@@ -16,15 +16,19 @@
 class BoxMullerRNG 
 {
 public:
+	BoxMullerRNG() {srand(time(NULL));}
 	//BoxMullerRNG();
-	data_t Generate() const;
+	data_t Generate();
 
 private:
 	const int m_mean = 0;
 	const int m_sd = 1;
 	const int m_n = 10000;
-	static const data_t pi = 3.1415926535;
-	static const data_t epsilon = std::numeric_limits<data_t>::min();
+	static constexpr data_t pi = 3.1415926535;
+	static constexpr data_t epsilon = std::numeric_limits<data_t>::min();
+	std::random_device rd;
+
+    
 };
 
 #endif //BOXMULLER_RNG_H_
