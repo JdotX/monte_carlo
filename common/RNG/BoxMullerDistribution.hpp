@@ -7,7 +7,6 @@ template<class RealType=double>
 class BoxMullerDistribution
 {
 public:
-    //struct param_type;
     BoxMullerDistribution (RealType mean=0.0, RealType stddev=1.0)
     {
         m_mean = mean;

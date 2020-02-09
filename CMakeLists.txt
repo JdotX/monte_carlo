@@ -6,9 +6,9 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_CXX_FLAGS "-stdlib=libc++")
 
-include_directories(common)
-#add_subdirectory(common/RNG)
+include_directories(common benchmarks)
+add_subdirectory(benchmarks)
 add_executable(monte_carlo common/main.cpp)
-#target_link_libraries(monte_carlo PUBLIC BoxMullerDistribution)
+target_link_libraries(monte_carlo PUBLIC RNGBenchmark)
 
 
