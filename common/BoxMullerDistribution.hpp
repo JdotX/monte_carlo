@@ -3,6 +3,12 @@
 #include "DefTypes.h"
 #include <random>
 
+/**
+ * \class BoxMullerDistribution
+ * \brief RNG with normal distribution via Box-Muller algorithm
+ * 
+ * Templated implementation used to meet with std::normal_distribution conventions.
+ */
 template<class RealType=double>
 class BoxMullerDistribution
 {

@@ -1,6 +1,10 @@
 #ifndef __BASEBENCHMARK_H_
 #define __BASEBENCHMARK_H_
 
+/**
+ * \class BaseBenchmark
+ * \brief This is the abstract base class for all benchmarking
+ */
 class BaseBenchmark
 {
 public:

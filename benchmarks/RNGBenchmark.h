@@ -2,9 +2,18 @@
 #define __RNGBENCHMARK_H_
 
 #include "BaseBenchmark.h"
-#include "RNG/BoxMullerDistribution.hpp"
+#include "BoxMullerDistribution.hpp"
 #include <iostream>
 
+
+/**
+ * \class RNGBenchmark
+ * \brief This benchmark tests the performance of normal RNGs.
+ * 
+ * Compared schemes: 
+ * 1. Built-in normal random number generator
+ * 2. Self-developed random numer generator with Box-Muller Algorithm
+ */
 class RNGBenchmark : public BaseBenchmark
 {
 public:
@@ -21,7 +30,7 @@ public:
     virtual ~RNGBenchmark() = default;
 
 private:
-    int m_samples;
+    int m_samples; //!< Number of samples generated from normal RNG
 };
 
 #endif //__RNGBENCHMARK_H_
