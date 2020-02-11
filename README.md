@@ -5,6 +5,7 @@ Important modules include:
 - Analytical solutions for pricing the European option with black-scholes formula
 - Monte-carlo simulations for pricing. Multi-threaded version. 
 - A visualization tool for the pricing process. 
+- Doxygen documentations
 
 And if time permits: 
 

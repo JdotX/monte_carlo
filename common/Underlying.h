@@ -8,42 +8,44 @@ template<class RealType>
 class Underlying
 {
 public:
-    RealType m_timeToMature;
-    RealType m_riskFreeRate;
-    RealType m_volatility;
-    RealType m_initPrice;
-    RealType m_strikePrice;
+    RealType T; //!< Time to expiration
+    RealType r; //!< Risk-free interest rate to time T
+    RealType v; //!< volatility 
+    RealType S0; //!< Current stock price
+    RealType K; //!< Strike price of the option
 
     Underlying(RealType timeToMature, 
                RealType riskFreeRate, 
                RealType volatility,
                RealType initPrice,
-               RealType strikePrice) : m_timeToMature(timeToMature), m_riskFreeRate(riskFreeRate), m_volatility(volatility), m_initPrice(initPrice), m_strikePrice(strikePrice);
+               RealType strikePrice) : T(timeToMature), r(riskFreeRate), v(volatility), S0(initPrice), K(strikePrice) {}
     
     Underlying(const Underlying& other)
     {
-        m_timeToMature = other.m_timeToMature;
-        m_riskFreeRate = other.m_riskFreeRate;
-        m_volatility = other.m_volatility;
-        m_initPrice = other.m_initPrice;
-        m_strikePrice = other.m_strikePrice;
+        T = other.T;
+        r = other.r;
+        v = other.v;
+        S0 = other.S0;
+        K = other.K;
     }
 
     /**
      * \brief print the info of the underlying
      */
-    friend std::ostream& operator<<(std::ostream& out, const Underlying& underlying) const;
+    template <typename T>
+    friend std::ostream& operator<<(std::ostream& out, const Underlying<T>& underlying);
 };
 
 template<class RealType>
 std::ostream& operator<<(std::ostream& out, const Underlying<RealType>& underlying)
 {
-    out << "Underlying (t, r, v, s0, K): ("
-        << underlying.m_timeToMature << ","
-        << underlying.m_riskFreeRate << ","
-        << underlying.m_volatility << ","
-        << underlying.m_initPrice << ","
-        << underlying.m_strikePrice << ")";
+    out << "Underlying (T, r, v, S0, K): ("
+        << underlying.T << ", "
+        << underlying.r << ", "
+        << underlying.v << ", "
+        << underlying.S0 << ", "
+        << underlying.K << ")";
+    return out;
 }
 
 #endif // UNDERLYING_H_

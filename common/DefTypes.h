@@ -3,6 +3,6 @@
 
 #include <math.h>
 typedef unsigned int uint;
-typedef float data_t;
+typedef double data_t;
 
 #endif //DEFTYPES_H_
