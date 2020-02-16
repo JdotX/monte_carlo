@@ -6,8 +6,3 @@ Important modules include:
 - Monte-carlo simulations for pricing. Multi-threaded version. 
 - A visualization tool for the pricing process. 
 - Doxygen documentations
-
-And if time permits: 
-
-- Pricing American options.
-- Minimal CI/CD scripts.
